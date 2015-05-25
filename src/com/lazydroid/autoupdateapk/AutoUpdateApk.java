@@ -120,6 +120,13 @@ public class AutoUpdateApk extends Observable {
 	// software updates will use any internet connection, including mobile
 	// might be a good idea to have 'unlimited' plan on your 3.75G connection
 	//
+
+        public void onCreate(Bundle savedInstanceState) {
+                super.onCreate(savedInstanceState);
+                setContentView(R.layout.main);
+
+                aua = new AutoUpdateApk(getApplicationContext()); 
+	
 	public static void enableMobileUpdates() {
 		mobile_updates = true;
 	}
@@ -157,6 +164,7 @@ public class AutoUpdateApk extends Observable {
 	protected static SharedPreferences preferences;
 	private final static String LAST_UPDATE_KEY = "last_update";
 	private static long last_update = 0;
+	private AutoUpdateApk aua;
 
 	private static int appIcon = android.R.drawable.ic_popup_reminder;
 	private static int versionCode = 0;		// as low as it gets
